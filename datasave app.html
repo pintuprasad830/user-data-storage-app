@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple App</title>
+
+
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body class="bg-light p-5">
+
+<div class="container col-md-4">
+
+  <h3 class="text-center mb-3">User App</h3>
+
+  
+  <input type="text" id="name" class="form-control mb-2" placeholder="Enter Name">
+  <input type="email" id="email" class="form-control mb-3" placeholder="Enter Email">
+
+  
+  <button class="btn btn-success w-100 mb-2" onclick="save()">Save</button>
+  <button class="btn btn-primary w-100 mb-2" onclick="show()">Show</button>
+  <button class="btn btn-danger w-100 mb-2" onclick="clearData()">Clear</button>
+
+  
+  <h5 id="output" class="text-center mt-3"></h5>
+
+</div>
+
+<script>
+function save() {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+
+  localStorage.setItem("name", name);
+  localStorage.setItem("email", email);
+  alert("saved");
+}
+
+function show() {
+  let name = localStorage.getItem("name");
+  let email = localStorage.getItem("email");
+
+  document.getElementById("output").innerText =
+    name + " | " + email;
+}
+
+function clearData() {
+  localStorage.clear();
+  document.getElementById("output").innerText = "";
+}
+</script>
+
+</body>
+</html>
